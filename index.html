@@ -370,66 +370,59 @@
     <div class="hero-top">
       <div class="hero-eyebrow">
         <span class="badge badge-featured">Featured project</span>
-        <span class="badge">Medical imaging · ML</span>
+        <span class="badge">Medical imaging · Deep learning</span>
       </div>
-      <p class="hero-title">Pancreatic MRI ensemble classifier</p>
-      <p class="hero-desc">An end-to-end pipeline for classifying pancreatic MRI scans using a voting ensemble of KNN, Random Forest, and SVM — with PCA preprocessing to reduce dimensionality and improve classifier performance on high-resolution medical image data.</p>
+      <p class="hero-title">Pancreatic MRI segmentation — 2D U-Net</p>
+      <p class="hero-desc">End-to-end deep learning pipeline for pancreas segmentation on MRI scans. A 2D U-Net with a ResNet-34 encoder (ImageNet pretrained) is trained on axial slices with foreground oversampling, Dice + BCE loss, and cosine annealing — achieving a best validation Dice of 0.806 across 80 epochs. Post-processing via largest connected component filtering improves 3D consistency.</p>
     </div>
 
     <div class="hero-body">
       <p class="section-micro">pipeline</p>
       <div class="pipeline">
         <div class="pipe-step">
-          <div class="pipe-box">MRI data</div>
+          <div class="pipe-box">MRI volume</div>
           <span class="pipe-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span>
         </div>
         <div class="pipe-step">
-          <div class="pipe-box pca">PCA</div>
+          <div class="pipe-box pca">z-score norm</div>
           <span class="pipe-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span>
         </div>
         <div class="pipe-step">
-          <div class="pipe-box model">KNN</div>
-          <span class="pipe-plus">+</span>
-        </div>
-        <div class="pipe-step">
-          <div class="pipe-box model">Random Forest</div>
-          <span class="pipe-plus">+</span>
-        </div>
-        <div class="pipe-step">
-          <div class="pipe-box model">SVM</div>
+          <div class="pipe-box model">2D U-Net (ResNet-34)</div>
           <span class="pipe-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span>
         </div>
         <div class="pipe-step">
-          <div class="pipe-box vote">Voting ensemble</div>
+          <div class="pipe-box vote">Dice + BCE loss</div>
           <span class="pipe-arrow"><i class="ti ti-arrow-right" aria-hidden="true"></i></span>
         </div>
-        <div class="pipe-box out">Prediction</div>
+        <div class="pipe-box out">3D segmentation mask</div>
       </div>
 
-      <p class="section-micro">at a glance</p>
+      <p class="section-micro">results</p>
       <div class="metrics">
         <div class="metric">
-          <span class="metric-num">3</span>
-          <span class="metric-lbl">classifiers in ensemble</span>
+          <span class="metric-num">0.806</span>
+          <span class="metric-lbl">best val Dice score</span>
         </div>
         <div class="metric">
-          <span class="metric-num">PCA</span>
-          <span class="metric-lbl">dimensionality reduction</span>
+          <span class="metric-num">80</span>
+          <span class="metric-lbl">epochs trained</span>
         </div>
         <div class="metric">
-          <span class="metric-num">MRI</span>
-          <span class="metric-lbl">pancreatic imaging data</span>
+          <span class="metric-num">21M</span>
+          <span class="metric-lbl">model parameters</span>
         </div>
       </div>
     </div>
 
     <div class="hero-footer">
       <div class="chips">
-        <span class="chip">sklearn</span>
-        <span class="chip">Python</span>
-        <span class="chip">PCA</span>
-        <span class="chip">ensemble voting</span>
+        <span class="chip">PyTorch</span>
+        <span class="chip">U-Net</span>
+        <span class="chip">ResNet-34</span>
+        <span class="chip">segmentation</span>
         <span class="chip">medical imaging</span>
+        <span class="chip">nibabel</span>
       </div>
       <a href="https://github.com/MirageGiri" target="_blank" style="font-size:13px;color:var(--text-secondary);text-decoration:none;display:flex;align-items:center;gap:5px;">
         <i class="ti ti-brand-github" aria-hidden="true"></i> View on GitHub
